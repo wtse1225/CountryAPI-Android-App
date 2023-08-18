@@ -1,0 +1,42 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+
+    <ion-buttons slot="start">
+      <ion-button (click)="goBack()">
+        <ion-icon name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+    <ion-title><strong>Country Details</strong></ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">details</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <div id="container">
+    <ng-container *ngIf="selectedCountry">
+      <ion-img 
+        class="flag-image"
+        slot="start"
+        src="{{ selectedCountry.flags.svg }}"
+        alt="The image of {{ selectedCountry.name}}'s country flag" >
+      </ion-img>
+      <p class="name"><strong>{{selectedCountry.name}}</strong></p>
+      <p>Country Code: {{selectedCountry.alpha3Code}}</p>
+      <p>Capital: {{selectedCountry.capital? selectedCountry.capital : "N/A"}}</p>
+      <p>The population of Antarctica is {{selectedCountry.population | number:'1.0-0'}}</p>
+    </ng-container>
+
+    <ion-button fill="outline" (click)="save()">
+      <ion-icon slot="start" name="star"></ion-icon>
+      Add to favorites
+    </ion-button>
+
+  </div>
+
+</ion-content>

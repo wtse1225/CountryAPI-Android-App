@@ -1,0 +1,33 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title class="ion-text-center">
+      <strong>List of Countries</strong>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Blank</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-list>
+    <ion-item 
+      *ngFor="let country of countryList" 
+      lines="full" 
+      button (click)="rowPressed($event, country.alpha3Code)">
+      
+      <ion-thumbnail slot="start">
+        <img src="{{ country.flags.svg }}" />
+      </ion-thumbnail>
+
+      <ion-label>
+        <p>{{ country.name }}</p>
+        <p>Country Code: {{ country.alpha3Code }}</p>
+      </ion-label>
+
+    </ion-item>
+  </ion-list>
+</ion-content>
