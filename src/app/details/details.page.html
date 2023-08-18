@@ -29,7 +29,7 @@
       <p class="name"><strong>{{selectedCountry.name}}</strong></p>
       <p>Country Code: {{selectedCountry.alpha3Code}}</p>
       <p>Capital: {{selectedCountry.capital? selectedCountry.capital : "N/A"}}</p>
-      <p>The population of Antarctica is {{selectedCountry.population | number:'1.0-0'}}</p>
+      <p>The population of {{ selectedCountry.name}} is {{selectedCountry.population | number:'1.0-0'}}</p>
     </ng-container>
 
     <ion-button fill="outline" (click)="save()">
